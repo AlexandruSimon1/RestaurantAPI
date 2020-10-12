@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringAPI:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SpringAPI</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="docker-spring-boot.war">
+      <element id="artifact" artifact-name="SpringAPI:war exploded" />
+    </root>
+  </artifact>
+</component>
