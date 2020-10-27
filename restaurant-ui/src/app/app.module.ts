@@ -1,41 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdministratorsComponent } from './administrators/administrators.component';
-import { WaitersComponent } from './waiters/waiters.component';
-import { OrdersComponent } from './orders/orders.component';
-import { MenusComponent } from './menus/menus.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { TablesComponent } from './tables/tables.component';
-import { AdministratorsService } from './administrators.service';
-import { WaitersService } from './waiters.service';
-import { CheckoutService } from './checkout.service';
-import { MenusService } from './menus.service';
-import { TablesService } from './tables.service';
-import { OrdersService } from './orders.service';
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { AdministratorComponent } from './administrator/administrator.component';
+import { CommonModule } from '@angular/common';
+import { UpdateAdministratorComponent } from './components/update-administrator/update-administrator.component';
+import { FormsModule } from '@angular/forms';
+import { CreateAdministratorComponent } from './components/create-administrator/create-administrator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdministratorsComponent,
-    WaitersComponent,
-    OrdersComponent,
-    MenusComponent,
-    CheckoutComponent,
-    TablesComponent
+    AdministratorComponent,
+    UpdateAdministratorComponent,
+    CreateAdministratorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
-  providers: [AdministratorsService, MenusService, WaitersService, CheckoutService, TablesService, OrdersService],
-
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

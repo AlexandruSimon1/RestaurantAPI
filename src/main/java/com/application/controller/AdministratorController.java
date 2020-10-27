@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/administrators")
@@ -19,6 +20,7 @@ import java.util.List;
 public class AdministratorController {
     @Autowired
     private final AdministratorService administratorService;
+
     //Mapping name
     @GetMapping
     //Response status is used for providing the status of our request
