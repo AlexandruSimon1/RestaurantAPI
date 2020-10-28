@@ -1,6 +1,8 @@
+import { EnumType } from 'typescript';
+
 export class Menus {
     id: number;
-    categoryType: string;
+    categorytype: string;
     name: string;
     description: string;
     price: number;

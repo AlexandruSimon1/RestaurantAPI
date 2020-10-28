@@ -18,7 +18,7 @@ export class WaiterComponent implements OnInit {
   ngOnInit(): void {
     this.reloadData();
   }
-
+  
   private reloadData() {
     this.waiterService.getWaiters()
       .subscribe(data => {

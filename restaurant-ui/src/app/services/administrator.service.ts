@@ -6,6 +6,7 @@ import { Administrator } from '../classes/administrator';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AdministratorService {
 
   private baseUrl = "http://localhost:8181/api/v1/administrators";

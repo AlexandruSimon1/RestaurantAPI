@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Administrator } from 'src/app/classes/administrator';
 import { AdministratorService } from 'src/app/services/administrator.service';
 
@@ -34,11 +33,11 @@ export class AdministratorComponent implements OnInit {
 
   deleteAdministratorById(id: number) {
     this.administratorService.deleteAdministratorsById(id)
-    .subscribe(data => {
-      console.log(data);
-      this.reloadData();
-    },
-      error => console.log(error));
+      .subscribe(data => {
+        console.log(data);
+        this.reloadData();
+      },
+        error => console.log(error));
   }
 
   updateAdministratorById(id: number) {

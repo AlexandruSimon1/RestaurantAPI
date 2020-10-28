@@ -1,4 +1,8 @@
-<h3>Create Administrator</h3>
+<div>
+  <a href="http://localhost:4200">Main Page </a>
+  <a href="http://localhost:4200/administrators" > Administrator Page</a>
+</div>
+<h3 style="text-align: center;">Create Administrator</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -26,7 +30,7 @@
 
     <div class="form-group">
       <label for="name">Phone Number</label>
-      <input type="number" class="form-control" id="phoneNumber" required [(ngModel)]="administrator.phoneNumber"
+      <input type="text" class="form-control" id="phoneNumber" required [(ngModel)]="administrator.phoneNumber"
         name="phoneNumber">
     </div>
 
