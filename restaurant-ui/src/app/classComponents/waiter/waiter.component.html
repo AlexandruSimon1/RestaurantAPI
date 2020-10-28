@@ -1,1 +1,41 @@
-<p>waiter works!</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Waiter List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let waiter of waiters">
+                    <td>{{waiter.id}}</td>
+                    <td>{{waiter.firstName}}</td>
+                    <td>{{waiter.lastName}}</td>
+                    <td>{{waiter.dateOfBirth}}</td>
+                    <td>{{waiter.address}}</td>
+                    <td>{{waiter.phoneNumber}}</td>
+                    <td>{{waiter.email}}</td>
+                    <td>
+                        <button (click)="deleteWaiterById(waiter.id)" class="btn btn-danger"
+                            style="margin-left: 10px">Delete</button>
+                        <button (click)="updateWaiterById(waiter.id)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="panel-footer">
+        <a href="javascript:history.back()" >Main Page</a>
+    </div> -->
+</div>

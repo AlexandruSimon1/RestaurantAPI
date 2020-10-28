@@ -3,12 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Administrator } from '../classes/administrator';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class AdministratorService {
+
   private baseUrl = "http://localhost:8181/api/v1/administrators";
 
   constructor(private http: HttpClient) { }
@@ -22,7 +21,7 @@ export class AdministratorService {
   }
 
   deleteAdministratorsById(id: number): Observable<Object> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+    return this.http.delete<Object>(`${this.baseUrl}/${id}`);
   }
 
   createAdministrator(administrator: Administrator): Observable<Object> {

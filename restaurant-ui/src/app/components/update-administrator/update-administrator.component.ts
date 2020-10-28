@@ -9,13 +9,14 @@ import { AdministratorService } from '../../services/administrator.service';
   styleUrls: ['./update-administrator.component.css']
 })
 export class UpdateAdministratorComponent implements OnInit {
+
   id: number;
   administrator: Administrator
 
   constructor(private route: ActivatedRoute, private router: Router,
     private administratorService: AdministratorService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.administrator = new Administrator();
     this.id = this.route.snapshot.params['id'];
 
@@ -26,20 +27,21 @@ export class UpdateAdministratorComponent implements OnInit {
       error => console.log(error));
   }
 
-  updateAdministratorById(){
-    this.administratorService.updateAdministratorById(this.id,this.administrator)
-    .subscribe(data=>{
-      console.log(data);
-      this.administrator=new Administrator();
-      this.goToList();}
-      ,error=>console.log(error));
+  updateAdministratorById() {
+    this.administratorService.updateAdministratorById(this.id, this.administrator)
+      .subscribe(data => {
+        console.log(data);
+        this.administrator = new Administrator();
+        this.goToList();
+      }
+        , error => console.log(error));
   }
 
-  onSubmit(){
+  onSubmit() {
     this.updateAdministratorById();
   }
-  
-  goToList(){
+
+  goToList() {
     this.router.navigate(['/administrators']);
   }
 }

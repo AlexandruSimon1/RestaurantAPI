@@ -14,6 +14,8 @@ import { MenusComponent } from './classComponents/menus/menus.component';
 import { OrderComponent } from './classComponents/order/order.component';
 import { TableComponent } from './classComponents/table/table.component';
 import { CheckoutComponent } from './classComponents/checkout/checkout.component';
+import { CreateWaiterComponent } from './components/create-waiter/create-waiter.component';
+import { UpdateWaiterComponent } from './components/update-waiter/update-waiter.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CheckoutComponent } from './classComponents/checkout/checkout.component
     MenusComponent,
     OrderComponent,
     TableComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CreateWaiterComponent,
+    UpdateWaiterComponent
   ],
   imports: [
     BrowserModule,

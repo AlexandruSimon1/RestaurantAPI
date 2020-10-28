@@ -11,6 +11,7 @@ import { AdministratorService } from 'src/app/services/administrator.service';
   templateUrl: './administrator.component.html',
   styleUrls: ['./administrator.component.css']
 })
+
 export class AdministratorComponent implements OnInit {
 
   administrators: Administrator[];
