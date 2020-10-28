@@ -17,16 +17,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let administrator of administrators | async">
+                <tr *ngFor="let administrator of administrators">
                     <td>{{administrator.id}}</td>
                     <td>{{administrator.firstName}}</td>
                     <td>{{administrator.lastName}}</td>
-                    <td>{{administrator.dateOdBirth}}</td>
+                    <td>{{administrator.dateOfBirth}}</td>
                     <td>{{administrator.address}}</td>
                     <td>{{administrator.phoneNumber}}</td>
                     <td>{{administrator.email}}</td>
-                    <td><button (click)="deleteAdministratorById(administrator.id)"
-                            class="btn btn-danger">Delete</button>
+                    <td>
+                        <button (click)="deleteAdministratorById(administrator.id)" class="btn btn-danger"
+                            style="margin-left: 10px">Delete</button>
                         <button (click)="updateAdministratorById(administrator.id)" class="btn btn-info"
                             style="margin-left: 10px">Update</button>
                     </td>
@@ -34,4 +35,7 @@
             </tbody>
         </table>
     </div>
+    <!-- <div class="panel-footer">
+        <a href="javascript:history.back()" >Main Page</a>
+    </div> -->
 </div>

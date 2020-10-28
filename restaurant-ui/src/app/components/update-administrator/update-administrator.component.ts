@@ -25,6 +25,7 @@ export class UpdateAdministratorComponent implements OnInit {
     },
       error => console.log(error));
   }
+
   updateAdministratorById(){
     this.administratorService.updateAdministratorById(this.id,this.administrator)
     .subscribe(data=>{
@@ -33,9 +34,11 @@ export class UpdateAdministratorComponent implements OnInit {
       this.goToList();}
       ,error=>console.log(error));
   }
+
   onSubmit(){
     this.updateAdministratorById();
   }
+  
   goToList(){
     this.router.navigate(['/administrators']);
   }
