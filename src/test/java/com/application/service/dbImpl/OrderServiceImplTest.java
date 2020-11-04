@@ -39,7 +39,7 @@ class OrderServiceImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        orderService = new OrderServiceImpl(orderRepository, menuRepository, tableRepository);
+        orderService = new OrderServiceImpl(orderRepository, menuRepository);
 
         order = new Order();
         order.setId(ID_VALUE);
