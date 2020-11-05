@@ -10,7 +10,7 @@
         <module name="ProiectalPractic" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8">
+    <bytecodeTargetLevel target="15">
       <module name="ProiectalPractic" target="8" />
     </bytecodeTargetLevel>
   </component>

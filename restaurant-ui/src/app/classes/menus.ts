@@ -6,4 +6,10 @@ export class Menus {
     name: string;
     description: string;
     price: number;
+    constructor(menus: any) {
+        this.id = menus.id;
+        this.categorytype = menus.categorytype;
+        this.name = menus.name;
+        this.price = menus.price;
+    }
 }

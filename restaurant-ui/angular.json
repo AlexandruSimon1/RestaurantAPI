@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "restaurant-ui"
+    }
+  },
+  "defaultProject": "restaurant-ui",
+  "cli": {
+    "analytics": "d6e61d8b-8c6d-4460-a208-d34f76937305"
+  }
 }

@@ -1,1 +1,31 @@
-<p>order works!</p>
+<div> <a href="http://localhost:4200">Main Page</a></div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 style="text-align: center;">Orders List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Order Number</th>
+                    <th>Menu</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders">
+                    <td>{{order.id}}</td>
+                    <td>{{order.orderNumber}}</td>
+                    <td>{{showOrderMenus(order.menus)}}</td>
+                    <td>
+                        <button (click)="deleteOrderById(order.id)" class="btn btn-danger"
+                            style="margin-left: 10px">Delete</button>
+                        <button (click)="updateOrderById(order.id)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

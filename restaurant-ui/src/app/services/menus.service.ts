@@ -20,8 +20,8 @@ export class MenusService {
     return this.http.get<Menus>(`${this.baseUrl}/${id}`);
   }
 
-  deleteMenusById(id: number): Observable<Object> {
-    return this.http.delete<Object>(`${this.baseUrl}/${id}`);
+  deleteMenusById(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
   updateMenusById(id: number, value: any): Observable<Object> {

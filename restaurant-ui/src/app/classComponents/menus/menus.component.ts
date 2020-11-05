@@ -25,9 +25,8 @@ export class MenusComponent implements OnInit {
       });
   }
 
-  deleteMenuById(id: number) {
-    this.menusService.deleteMenusById(id)
-      .subscribe(data => {
+  deleteMenuById(id: number): void {
+    this.menusService.deleteMenusById(id).subscribe(data => {
         console.log(data);
         this.reloadData();
       },
