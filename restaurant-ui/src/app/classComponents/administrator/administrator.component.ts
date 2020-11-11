@@ -20,10 +20,10 @@ export class AdministratorComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.reloadData();
+    this.getAdministratorsData();
   }
 
-  private reloadData() {
+  private getAdministratorsData() {
     this.administratorService.getAdministrators()
       .subscribe(data => {
         this.administrators = data;
@@ -35,7 +35,7 @@ export class AdministratorComponent implements OnInit {
     this.administratorService.deleteAdministratorsById(id)
       .subscribe(data => {
         console.log(data);
-        this.reloadData();
+        this.getAdministratorsData();
       },
         error => console.log(error));
   }

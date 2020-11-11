@@ -1,1 +1,31 @@
-<p>table works!</p>
+<div> <a href="http://localhost:4200">Main Page</a></div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 style="text-align: center;">Table List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Number</th>
+                    <th>Order</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let table of tables">
+                    <td>{{table.id}}</td>
+                    <td>{{table.number}}</td>
+                    <td>{{showTableOrders(table.order)}}</td>
+                    <td>
+                        <button (click)="deleteOrderById(table.id)" class="btn btn-danger"
+                            style="margin-left: 10px">Delete</button>
+                        <button (click)="updateOrderById(table.id)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

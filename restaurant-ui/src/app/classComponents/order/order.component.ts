@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Menus } from 'src/app/classes/menus';
 import { Order } from 'src/app/classes/order';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -17,10 +16,10 @@ export class OrderComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.reloadData();
+    this.getOrdersData();
   }
 
-  private reloadData() {
+  private getOrdersData() {
     this.orderService.getOrders()
       .subscribe(data => {
         this.orders = data;
@@ -37,7 +36,7 @@ export class OrderComponent implements OnInit {
     this.orderService.deleteOrdersById(id)
       .subscribe(data => {
         console.log(data);
-        this.reloadData();
+        this.getOrdersData();
       },
         error => console.log(error));
   }

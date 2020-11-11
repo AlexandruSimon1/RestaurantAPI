@@ -3,10 +3,10 @@ import { Order } from './order';
 export class Checkout {
     id: number;
     paymentType: string;
-    orders: Order[];
-    constructor(id: number, paymentType: string, orders: Order[]) {
+    order: Order;
+    constructor(id: number, paymentType: string, order: Order) {
         this.id = id;
         this.paymentType = paymentType;
-        this.orders = orders;
+        this.order = order;
     }
 }

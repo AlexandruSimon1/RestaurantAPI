@@ -16,9 +16,9 @@ export class MenusComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.reloadData();
+    this.getMenusData();
   }
-  private reloadData() {
+  private getMenusData() {
     this.menusService.getMenus()
       .subscribe(data => {
         this.menus = data;
@@ -27,10 +27,10 @@ export class MenusComponent implements OnInit {
 
   deleteMenuById(id: number): void {
     this.menusService.deleteMenusById(id).subscribe(data => {
-        console.log(data);
-        this.reloadData();
-      },
-        error => console.log(error));
+      console.log(data);
+      this.getMenusData();
+    },
+      error => console.log(error));
   }
 
   updateMenuById(id: number) {

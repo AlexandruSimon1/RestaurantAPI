@@ -16,10 +16,10 @@ export class WaiterComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.reloadData();
+    this.getWaitersData();
   }
-  
-  private reloadData() {
+
+  private getWaitersData() {
     this.waiterService.getWaiters()
       .subscribe(data => {
         this.waiters = data;
@@ -30,7 +30,7 @@ export class WaiterComponent implements OnInit {
     this.waiterService.deleteWaitersById(id)
       .subscribe(data => {
         console.log(data);
-        this.reloadData();
+        this.getWaitersData();
       });
   }
 

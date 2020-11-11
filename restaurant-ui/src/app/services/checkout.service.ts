@@ -16,19 +16,19 @@ export class CheckoutService {
     return this.http.get<Checkout[]>(`${this.baseUrl}`);
   }
 
-  getCheckoutByID(id: number): Observable<Checkout> {
+  getCheckoutsByID(id: number): Observable<Checkout> {
     return this.http.get<Checkout>(`${this.baseUrl}/${id}`);
   }
 
-  deleteCheckoutByID(id: number): Observable<Object> {
+  deleteCheckoutsByID(id: number): Observable<Object> {
     return this.http.delete<Object>(`${this.baseUrl}/${id}`);
   }
 
-  updateCheckoutById(id: number, value: any): Observable<Object> {
+  updateCheckoutsById(id: number, value: any): Observable<Object> {
     return this.http.put<Object>(`${this.baseUrl}/${id}`, value);
   }
 
-  createCheckout(checkout:Checkout):Observable<Object> {
-return this.http.post<Object>(`${this.baseUrl}`,checkout);
+  createCheckout(checkout: Checkout): Observable<Object> {
+    return this.http.post<Object>(`${this.baseUrl}`, checkout);
   }
 }
