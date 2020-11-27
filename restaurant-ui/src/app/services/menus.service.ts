@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Menus } from '../models/menus';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Menus } from '../models/menus';
 })
 export class MenusService {
 
-  private baseUrl = "http://localhost:8181/api/v1/menus";
+  private baseUrl = `${environment.baseAPIUrl}/${environment.api.menu}`;
 
   constructor(private http: HttpClient) { }
 

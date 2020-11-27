@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Checkout } from '../models/checkout';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Checkout } from '../models/checkout';
 })
 export class CheckoutService {
 
-  private baseUrl = "http://localhost:8181/api/v1/checkout";
+  private baseUrl = `${environment.baseAPIUrl}/${environment.api.checkout}`;
 
   constructor(private http: HttpClient) { }
 

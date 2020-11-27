@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Table } from '../models/table';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Table } from '../models/table';
 })
 export class TableService {
 
-  private baseUrl = "http://localhost:8181/api/v1/tables";
+  private baseUrl = `${environment.baseAPIUrl}/${environment.api.table}`;
 
   constructor(private http: HttpClient) { }
 

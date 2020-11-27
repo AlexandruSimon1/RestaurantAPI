@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Waiter } from '../models/waiter';
 
 @Injectable({
@@ -8,7 +9,8 @@ import { Waiter } from '../models/waiter';
 })
 export class WaiterService {
 
-  private baseUrl = "http://localhost:8181/api/v1/waiters";
+  private baseUrl = `${environment.baseAPIUrl}/${environment.api.waiter}`;
+
   constructor(private http: HttpClient) { }
 
   getWaiters(): Observable<Waiter[]> {
