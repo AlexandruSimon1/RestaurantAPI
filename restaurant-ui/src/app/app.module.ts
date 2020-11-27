@@ -1,5 +1,11 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AdministratorComponent } from './modules/administrator/administrator-main/administrator.component';
 import { CheckoutComponent } from './modules/checkout/checkout-main/checkout.component';
 import { MenusComponent } from './modules/menus/menus-main/menus.component';
@@ -11,27 +17,28 @@ import { CreateWaiterComponent } from './modules/waiter/create-waiter/create-wai
 import { UpdateAdministratorComponent } from './modules/administrator/update-administrator/update-administrator.component';
 import { UpdateWaiterComponent } from './modules/waiter/update-waiter/update-waiter.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'waiter', pathMatch: 'full' },
-  { path: '', redirectTo: 'administrator', pathMatch: 'full' },
-  { path: '', redirectTo: 'menu', pathMatch: 'full' },
-  { path: '', redirectTo: 'order', pathMatch: 'full' },
-  { path: '', redirectTo: 'checkout', pathMatch: 'full' },
-  { path: '', redirectTo: 'table', pathMatch: 'full' },
-  { path: 'administrators', component: AdministratorComponent },
-  { path: 'update/:id', component: UpdateAdministratorComponent },
-  { path: 'createAdministrator', component: CreateAdministratorComponent },
-  { path: 'waiters', component: WaiterComponent },
-  { path: 'update/:id', component: UpdateWaiterComponent },
-  { path: 'createWaiter', component: CreateWaiterComponent },
-  { path: 'menus', component: MenusComponent },
-  { path: 'orders', component: OrderComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'tables', component: TableComponent },
-];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  declarations: [
+    AppComponent,
+    AdministratorComponent,
+    UpdateAdministratorComponent,
+    CreateAdministratorComponent,
+    WaiterComponent,
+    MenusComponent,
+    OrderComponent,
+    TableComponent,
+    CheckoutComponent,
+    CreateWaiterComponent,
+    UpdateWaiterComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    HttpClientModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppRoutingModule { }
+export class AppModule { }
