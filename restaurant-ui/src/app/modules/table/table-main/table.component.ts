@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Table } from 'src/app/classes/table';
+import { Table } from 'src/app/models/table';
 import { TableService } from 'src/app/services/table.service';
 
 @Component({

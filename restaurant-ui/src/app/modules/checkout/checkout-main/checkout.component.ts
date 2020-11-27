@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Checkout } from 'src/app/classes/checkout';
+import { Checkout } from 'src/app/models/checkout';
 import { CheckoutService } from 'src/app/services/checkout.service';
 
 @Component({
-  selector: 'app-checkout',
+  selector: 'app-checkout-main',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })

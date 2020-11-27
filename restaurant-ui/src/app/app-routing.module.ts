@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdministratorComponent } from './classComponents/administrator/administrator.component';
-import { CheckoutComponent } from './classComponents/checkout/checkout.component';
-import { MenusComponent } from './classComponents/menus/menus.component';
-import { OrderComponent } from './classComponents/order/order.component';
-import { TableComponent } from './classComponents/table/table.component';
-import { WaiterComponent } from './classComponents/waiter/waiter.component';
-import { CreateAdministratorComponent } from './components/create-administrator/create-administrator.component';
-import { CreateWaiterComponent } from './components/create-waiter/create-waiter.component';
-import { UpdateAdministratorComponent } from './components/update-administrator/update-administrator.component';
-import { UpdateWaiterComponent } from './components/update-waiter/update-waiter.component';
+import { AdministratorComponent } from './modules/administrator/administrator-main/administrator.component';
+import { CheckoutComponent } from './modules/checkout/checkout-main/checkout.component';
+import { MenusComponent } from './modules/menus/menus-main/menus.component';
+import { OrderComponent } from './modules/order/order-main/order.component';
+import { TableComponent } from './modules/table/table-main/table.component';
+import { WaiterComponent } from './modules/waiter/waiter-main/waiter.component';
+import { CreateAdministratorComponent } from './modules/administrator/create-administrator/create-administrator.component';
+import { CreateWaiterComponent } from './modules/waiter/create-waiter/create-waiter.component';
+import { UpdateAdministratorComponent } from './modules/administrator/update-administrator/update-administrator.component';
+import { UpdateWaiterComponent } from './modules/waiter/update-waiter/update-waiter.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'waiter', pathMatch: 'full' },

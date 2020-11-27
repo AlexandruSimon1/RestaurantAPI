@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Waiter } from 'src/app/classes/waiter';
+import { Waiter } from 'src/app/models/waiter';
 import { WaiterService } from 'src/app/services/waiter.service';
 
 @Component({

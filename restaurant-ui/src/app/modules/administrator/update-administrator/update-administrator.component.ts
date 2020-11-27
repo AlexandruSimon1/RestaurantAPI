@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Administrator } from '../../classes/administrator';
-import { AdministratorService } from '../../services/administrator.service';
+import { Administrator } from 'src/app/models/administrator';
+import { AdministratorService } from 'src/app/services/administrator.service';
 
 @Component({
   selector: 'app-update-administrator',

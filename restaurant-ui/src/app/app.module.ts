@@ -1,44 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AdministratorComponent } from './modules/administrator/administrator-main/administrator.component';
+import { CheckoutComponent } from './modules/checkout/checkout-main/checkout.component';
+import { MenusComponent } from './modules/menus/menus-main/menus.component';
+import { OrderComponent } from './modules/order/order-main/order.component';
+import { TableComponent } from './modules/table/table-main/table.component';
+import { WaiterComponent } from './modules/waiter/waiter-main/waiter.component';
+import { CreateAdministratorComponent } from './modules/administrator/create-administrator/create-administrator.component';
+import { CreateWaiterComponent } from './modules/waiter/create-waiter/create-waiter.component';
+import { UpdateAdministratorComponent } from './modules/administrator/update-administrator/update-administrator.component';
+import { UpdateWaiterComponent } from './modules/waiter/update-waiter/update-waiter.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CommonModule } from '@angular/common';
-import { UpdateAdministratorComponent } from './components/update-administrator/update-administrator.component';
-import { FormsModule } from '@angular/forms';
-import { CreateAdministratorComponent } from './components/create-administrator/create-administrator.component';
-import { AdministratorComponent } from './classComponents/administrator/administrator.component';
-import { WaiterComponent } from './classComponents/waiter/waiter.component';
-import { MenusComponent } from './classComponents/menus/menus.component';
-import { OrderComponent } from './classComponents/order/order.component';
-import { TableComponent } from './classComponents/table/table.component';
-import { CheckoutComponent } from './classComponents/checkout/checkout.component';
-import { CreateWaiterComponent } from './components/create-waiter/create-waiter.component';
-import { UpdateWaiterComponent } from './components/update-waiter/update-waiter.component';
+const routes: Routes = [
+  { path: '', redirectTo: 'waiter', pathMatch: 'full' },
+  { path: '', redirectTo: 'administrator', pathMatch: 'full' },
+  { path: '', redirectTo: 'menu', pathMatch: 'full' },
+  { path: '', redirectTo: 'order', pathMatch: 'full' },
+  { path: '', redirectTo: 'checkout', pathMatch: 'full' },
+  { path: '', redirectTo: 'table', pathMatch: 'full' },
+  { path: 'administrators', component: AdministratorComponent },
+  { path: 'update/:id', component: UpdateAdministratorComponent },
+  { path: 'createAdministrator', component: CreateAdministratorComponent },
+  { path: 'waiters', component: WaiterComponent },
+  { path: 'update/:id', component: UpdateWaiterComponent },
+  { path: 'createWaiter', component: CreateWaiterComponent },
+  { path: 'menus', component: MenusComponent },
+  { path: 'orders', component: OrderComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'tables', component: TableComponent },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdministratorComponent,
-    UpdateAdministratorComponent,
-    CreateAdministratorComponent,
-    WaiterComponent,
-    MenusComponent,
-    OrderComponent,
-    TableComponent,
-    CheckoutComponent,
-    CreateWaiterComponent,
-    UpdateWaiterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CommonModule,
-    HttpClientModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppModule { }
+export class AppRoutingModule { }
