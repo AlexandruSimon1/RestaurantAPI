@@ -40,6 +40,10 @@ export class AdministratorComponent implements OnInit {
         error => console.log(error));
   }
 
+  administratorDetails(id: number){
+    this.router.navigate(['details', id]);
+  }
+
   updateAdministratorById(id: number) {
     this.router.navigate(['update', id]);
   }

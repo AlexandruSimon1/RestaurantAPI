@@ -10,14 +10,11 @@ import { CreateAdministratorComponent } from './modules/administrator/create-adm
 import { CreateWaiterComponent } from './modules/waiter/create-waiter/create-waiter.component';
 import { UpdateAdministratorComponent } from './modules/administrator/update-administrator/update-administrator.component';
 import { UpdateWaiterComponent } from './modules/waiter/update-waiter/update-waiter.component';
+import { AdministratorDetailComponent } from './modules/administrator/administrator-detail/administrator-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'waiter', pathMatch: 'full' },
   { path: '', redirectTo: 'administrator', pathMatch: 'full' },
-  { path: '', redirectTo: 'menu', pathMatch: 'full' },
-  { path: '', redirectTo: 'order', pathMatch: 'full' },
-  { path: '', redirectTo: 'checkout', pathMatch: 'full' },
-  { path: '', redirectTo: 'table', pathMatch: 'full' },
   { path: 'administrators', component: AdministratorComponent },
   { path: 'update/:id', component: UpdateAdministratorComponent },
   { path: 'createAdministrator', component: CreateAdministratorComponent },
@@ -28,6 +25,7 @@ const routes: Routes = [
   { path: 'orders', component: OrderComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'tables', component: TableComponent },
+  { path: 'details/:id', component: AdministratorDetailComponent },
 ];
 
 @NgModule({
