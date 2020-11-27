@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Waiter } from '../classes/waiter';
+import { Waiter } from '../models/waiter';
 
 @Injectable({
   providedIn: 'root'
