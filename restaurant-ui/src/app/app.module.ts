@@ -35,6 +35,7 @@ import { CreateTablesComponent } from './modules/table/create-tables/create-tabl
   declarations: [
     AppComponent,
     AdministratorComponent,
+    AdministratorDetailComponent,
     UpdateAdministratorComponent,
     CreateAdministratorComponent,
     WaiterComponent,
@@ -44,7 +45,6 @@ import { CreateTablesComponent } from './modules/table/create-tables/create-tabl
     CheckoutComponent,
     CreateWaiterComponent,
     UpdateWaiterComponent,
-    AdministratorDetailComponent,
     WaiterDetailComponent,
     OrderDetailComponent,
     CheckoutDetailComponent,

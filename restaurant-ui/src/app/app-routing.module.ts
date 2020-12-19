@@ -13,7 +13,8 @@ import { UpdateWaiterComponent } from './modules/waiter/update-waiter/update-wai
 import { AdministratorDetailComponent } from './modules/administrator/administrator-detail/administrator-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'waiter', pathMatch: 'full' },
+  
+  { path: '', redirectTo: 'administrator', pathMatch: 'full' },
   { path: '', redirectTo: 'administrator', pathMatch: 'full' },
   { path: 'administrators', component: AdministratorComponent },
   { path: 'update/:id', component: UpdateAdministratorComponent },
