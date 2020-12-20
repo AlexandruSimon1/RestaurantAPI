@@ -9,6 +9,7 @@ import com.application.mapper.OrderMapper;
 import com.application.model.CheckOut;
 import com.application.repository.CheckOutRepository;
 import com.application.service.CheckOutService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Transactional
 @Service
 public class CheckOutServiceImpl implements CheckOutService {
-    @Autowired
     private final CheckOutRepository checkOutRepository;
 
     @Override
@@ -42,6 +42,7 @@ public class CheckOutServiceImpl implements CheckOutService {
     public CheckOutDTO deleteCheckOutById(int checkOutId) {
         final CheckOut deleteCheckOut = checkOutRepository.findById(checkOutId).
                 orElseThrow(() -> new ApplicationException(ExceptionType.CHECKOUT_NOT_FOUND));
+        checkOutRepository.deleteById(checkOutId);
         return CheckOutMapper.INSTANCE.toCheckOutDto(deleteCheckOut, new NotificatorMappingContext());
     }
 

@@ -16,6 +16,7 @@
     <packaging>jar</packaging>
     <properties>
         <java.version>8</java.version>
+        <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <!-- implementing the flyway in order to manage the MySQL from maven -->
         <flyway-maven-plugin.version>6.0.3</flyway-maven-plugin.version>
         <flyway-maven-plugin.user>root</flyway-maven-plugin.user>
@@ -63,16 +64,14 @@
             <version>7.3.2</version>
         </dependency>
         <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <scope>provided</scope>
-            <version>1.4.1.Final</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
         <dependency>
@@ -85,6 +84,7 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
+            <scope>provided</scope>
             <version>3.0.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -133,6 +133,18 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.16</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>

@@ -8,6 +8,7 @@ import com.application.mapper.TableMapper;
 import com.application.model.Table;
 import com.application.repository.TableRepository;
 import com.application.service.TableService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Transactional
 public class TableServiceImpl implements TableService {
-    @Autowired
     private final TableRepository tableRepository;
 
     @Override
@@ -40,6 +40,7 @@ public class TableServiceImpl implements TableService {
     public TableDTO deleteTableById(int tableId) {
         final Table deleteTable = tableRepository.findById(tableId).
                 orElseThrow(() -> new ApplicationException(ExceptionType.TABLE_NOT_FOUND));
+        tableRepository.deleteById(tableId);
         return TableMapper.INSTANCE.toTableDto(deleteTable, new NotificatorMappingContext());
     }
 

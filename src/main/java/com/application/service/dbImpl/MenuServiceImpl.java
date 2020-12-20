@@ -8,6 +8,7 @@ import com.application.mapper.NotificatorMappingContext;
 import com.application.model.Menu;
 import com.application.repository.MenuRepository;
 import com.application.service.MenuService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +18,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Transactional
 public class MenuServiceImpl implements MenuService {
-    @Autowired
     private final MenuRepository menuRepository;
 
     @Override
@@ -40,6 +40,7 @@ public class MenuServiceImpl implements MenuService {
     public MenuDTO deleteProductById(int productId) {
         final Menu deleteProduct = menuRepository.findById(productId).
                 orElseThrow(() -> new ApplicationException(ExceptionType.PRODUCT_NOT_FOUND));
+        menuRepository.deleteById(productId);
         return MenuMapper.INSTANCE.toMenuDto(deleteProduct, new NotificatorMappingContext());
     }
 

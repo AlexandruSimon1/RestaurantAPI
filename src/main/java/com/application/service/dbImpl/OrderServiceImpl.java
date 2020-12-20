@@ -13,6 +13,7 @@ import com.application.repository.MenuRepository;
 import com.application.repository.OrderRepository;
 import com.application.repository.TableRepository;
 import com.application.service.OrderService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,12 +26,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Transactional
 public class OrderServiceImpl implements OrderService {
-    @Autowired
     private final OrderRepository orderRepository;
-    @Autowired
     private final MenuRepository menuRepository;
 
     @Override
@@ -51,6 +50,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO deleteOrderById(int orderNumber) {
         final Order deleteOrder = orderRepository.findById(orderNumber).
                 orElseThrow(() -> new ApplicationException(ExceptionType.ORDER_NOT_FOUND));
+        orderRepository.deleteById(orderNumber);
         return OrderMapper.INSTANCE.toOrderDto(deleteOrder, new NotificatorMappingContext());
     }
 

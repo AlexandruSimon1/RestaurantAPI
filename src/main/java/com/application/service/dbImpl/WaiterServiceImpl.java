@@ -8,7 +8,9 @@ import com.application.mapper.WaiterMapper;
 import com.application.model.Waiter;
 import com.application.repository.WaiterRepository;
 import com.application.service.WaiterService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Transactional
 public class WaiterServiceImpl implements WaiterService {
     private final WaiterRepository waiterRepository;
@@ -39,6 +41,7 @@ public class WaiterServiceImpl implements WaiterService {
     public WaiterDTO deleteWaiterById(int waiterId) {
         final Waiter deleteWaiter = waiterRepository.findById(waiterId).
                 orElseThrow(() -> new ApplicationException(ExceptionType.WAITER_NOT_FOUND));
+        waiterRepository.deleteById(waiterId);
         return WaiterMapper.INSTANCE.toWaiterDto(deleteWaiter, new NotificatorMappingContext());
     }
 

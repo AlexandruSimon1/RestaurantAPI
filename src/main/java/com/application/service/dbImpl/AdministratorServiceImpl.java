@@ -9,6 +9,7 @@ import com.application.mapper.NotificatorMappingContext;
 import com.application.model.Administrator;
 import com.application.repository.AdministratorRepository;
 import com.application.service.AdministratorService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +19,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Transactional
 public class AdministratorServiceImpl implements AdministratorService {
-    @Autowired
     private final AdministratorRepository administratorRepository;
 
     @Override
@@ -42,6 +42,7 @@ public class AdministratorServiceImpl implements AdministratorService {
     public AdminDTO deleteAdministratorById(int adminId) {
         final Administrator deleteAdministrator = administratorRepository.findById(adminId).
                 orElseThrow(() -> new ApplicationException(ExceptionType.ADMINISTRATOR_NOT_FOUND));
+        administratorRepository.deleteById(adminId);
         return AdministratorMapper.INSTANCE.toAdministratorDto(deleteAdministrator, new NotificatorMappingContext());
     }
 
