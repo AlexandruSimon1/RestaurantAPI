@@ -18,7 +18,6 @@ export class AdministratorComponent implements OnInit {
   constructor(private router: Router,
     private administratorService: AdministratorService) { }
 
-
   ngOnInit(): void {
     this.getAdministratorsData();
   }
@@ -29,7 +28,6 @@ export class AdministratorComponent implements OnInit {
         this.administrators = data;
       });
   }
-
 
   deleteAdministratorById(id: number) {
     this.administratorService.deleteAdministratorsById(id)

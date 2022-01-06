@@ -1,3 +1,4 @@
+import { CreateUserComponent } from './modules/create-user/create-user.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -30,6 +31,12 @@ import { CreateCheckoutComponent } from './modules/checkout/create-checkout/crea
 import { CreateMenusComponent } from './modules/menus/create-menus/create-menus.component';
 import { CreateOrderComponent } from './modules/order/create-order/create-order.component';
 import { CreateTablesComponent } from './modules/table/create-tables/create-tables.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './modules/home/home.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { PersonalModulesModule } from './modules/personal-modules.module';
 
 @NgModule({
   declarations: [
@@ -57,14 +64,20 @@ import { CreateTablesComponent } from './modules/table/create-tables/create-tabl
     CreateCheckoutComponent,
     CreateMenusComponent,
     CreateOrderComponent,
-    CreateTablesComponent
+    CreateTablesComponent,
+    HomeComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatTableModule,
+    PersonalModulesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

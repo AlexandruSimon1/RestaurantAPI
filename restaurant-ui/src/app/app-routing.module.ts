@@ -1,3 +1,4 @@
+import { HomeComponent } from './modules/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdministratorComponent } from './modules/administrator/administrator-main/administrator.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'tables', component: TableComponent },
   { path: 'details/:id', component: AdministratorDetailComponent },
+  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({

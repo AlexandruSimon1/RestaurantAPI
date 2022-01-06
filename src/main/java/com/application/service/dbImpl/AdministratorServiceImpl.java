@@ -10,8 +10,9 @@ import com.application.model.Administrator;
 import com.application.repository.AdministratorRepository;
 import com.application.service.AdministratorService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,14 +31,12 @@ public class AdministratorServiceImpl implements AdministratorService {
                 map(administrator -> AdministratorMapper.INSTANCE.
                         toAdministratorDto(administrator, new NotificatorMappingContext())).collect(Collectors.toList());
     }
-
     @Override
     public AdminDTO getAdministratorById(int adminId) {
         final Administrator getAdministrator = administratorRepository.findById(adminId).
                 orElseThrow(() -> new ApplicationException(ExceptionType.ADMINISTRATOR_NOT_FOUND));
         return AdministratorMapper.INSTANCE.toAdministratorDto(getAdministrator, new NotificatorMappingContext());
     }
-
     @Override
     public AdminDTO deleteAdministratorById(int adminId) {
         final Administrator deleteAdministrator = administratorRepository.findById(adminId).
@@ -45,14 +44,12 @@ public class AdministratorServiceImpl implements AdministratorService {
         administratorRepository.deleteById(adminId);
         return AdministratorMapper.INSTANCE.toAdministratorDto(deleteAdministrator, new NotificatorMappingContext());
     }
-
     @Override
     public AdminDTO createAdministrator(AdminDTO adminDTO) {
         final Administrator createAdministrator = AdministratorMapper.INSTANCE.fromAdministratorDto(adminDTO, new NotificatorMappingContext());
         final Administrator saveAdministrator = administratorRepository.save(createAdministrator);
         return AdministratorMapper.INSTANCE.toAdministratorDto(saveAdministrator, new NotificatorMappingContext());
     }
-
     @Override
     public AdminDTO update(AdminDTO adminDTO, int adminId) {
         final Administrator updateAdministrator = administratorRepository.findById(adminId).
@@ -65,5 +62,4 @@ public class AdministratorServiceImpl implements AdministratorService {
         administratorRepository.save(updateAdministrator);
         return AdministratorMapper.INSTANCE.toAdministratorDto(updateAdministrator, new NotificatorMappingContext());
     }
-
 }

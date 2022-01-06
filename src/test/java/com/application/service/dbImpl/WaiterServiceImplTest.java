@@ -65,7 +65,6 @@ class WaiterServiceImplTest {
     @Test
     void deleteWaiterById() {
         when(waiterRepository.findById(ID_VALUE)).thenReturn(Optional.of(defaultWaiter));
-        waiterRepository.deleteById(ID_VALUE);
         WaiterDTO waiterDTO = waiterServiceImpl.deleteWaiterById(ID_VALUE);
 
         assertEquals(ID_VALUE, waiterDTO.getId());

@@ -1,0 +1,16 @@
+mat-sidenav-container {
+    margin-top: 64px;
+  }
+  
+  .loading-bar1 {
+    height: 10px;
+    background: lime;
+  }
+  
+  .active-link {
+    color: goldenrod;
+  }
+  .active-link-drawer {
+    color: #aaa;
+  }
+  

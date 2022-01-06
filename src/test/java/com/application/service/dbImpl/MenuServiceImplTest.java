@@ -70,7 +70,6 @@ class MenuServiceImplTest {
     void deleteProductById() {
         //when
         when(menuRepository.findById(ID_VALUE)).thenReturn(Optional.of(defaultMenu));
-        menuRepository.deleteById(ID_VALUE);
         MenuDTO menuDTO = menuService.deleteProductById(ID_VALUE);
         //then
         verify(menuRepository, times(1)).deleteById(ID_VALUE);

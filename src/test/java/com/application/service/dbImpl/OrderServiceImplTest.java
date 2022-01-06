@@ -94,7 +94,6 @@ class OrderServiceImplTest {
     void deleteOrderById() {
         //when
         when(orderRepository.findById(ID_VALUE)).thenReturn(Optional.of(order));
-        orderRepository.deleteById(ID_VALUE);
         OrderDTO orderDTO = orderService.deleteOrderById(ID_VALUE);
         //then
         verify(orderRepository, times(1)).deleteById(ID_VALUE);
