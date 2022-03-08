@@ -56,7 +56,7 @@ pipeline {
                                     remote.name = userName
                                     remote.identityFile = identity
                                     remote.allowAnyHosts = 'true'
-//                                     sshCommand remote: remote, command: 'docker container kill $(docker ps -a -q)'
+                                    sshCommand remote: remote, command: 'docker container kill $(docker ps -a -q)'
                                     sshCommand remote: remote, command: 'docker rm $(docker ps -a -q)'
                                     sshCommand remote: remote, command: 'docker rmi $(docker images -q)'
                                     sshCommand remote: remote, command: "docker login | docker pull ${dockerLogin}/restaurant"
@@ -67,7 +67,7 @@ pipeline {
                                 waitUntil(initialRecurrencePeriod: 2000) {
                                     script {
                                         def result =
-                                        sh script: "curl --silent --output /dev/null ${host}/api/v1/menus",
+                                        sh script: "curl --silent --output /dev/null ${host}:8282/api/v1/menus",
                                         returnStatus: true
                                         return (result == 0)
                                     }
