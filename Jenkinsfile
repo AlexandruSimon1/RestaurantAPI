@@ -57,8 +57,8 @@ pipeline {
                                     remote.identityFile = identity
                                     remote.allowAnyHosts = 'true'
 //                                     sshCommand remote: remote, command: 'docker container kill $(docker ps -a -q)'
-                                    sshCommand remote: remote, command: 'docker rm $(docker ps -a -q)'
-                                    sshCommand remote: remote, command: 'docker rmi $(docker images -q)'
+//                                     sshCommand remote: remote, command: 'docker rm $(docker ps -a -q)'
+//                                     sshCommand remote: remote, command: 'docker rmi $(docker images -q)'
                                     sshCommand remote: remote, command: "docker login | docker pull ${dockerLogin}/restaurant"
                                     sshCommand remote: remote, command: "docker container run --env PASSWORD=${password} --env DATABASE=${database} -d -p 80:8282 --name restaurant ${dockerLogin}/restaurant"
                                     sshCommand remote: remote, command: "exit"
