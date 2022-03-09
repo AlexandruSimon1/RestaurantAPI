@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    triggers {
-            githubPush()
-    }
     stages {
         stage("Read from Maven POM"){
             steps{
