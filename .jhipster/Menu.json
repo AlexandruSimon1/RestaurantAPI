@@ -1,0 +1,40 @@
+{
+  "applications": ["RestaurantAPI"],
+  "changelogDate": "20220317151001",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "menu",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "categoryType",
+      "fieldType": "CategoryType",
+      "fieldValues": "PIZZA,SALAD,SOUP,DESSERT,BEVERAGE,ALCOHOL"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Menu",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "menu",
+      "relationshipName": "order",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

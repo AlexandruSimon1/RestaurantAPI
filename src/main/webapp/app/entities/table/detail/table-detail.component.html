@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="table">
+      <h2 data-cy="tableDetailsHeading"><span jhiTranslate="restaurantApiApp.table.detail.title">Table</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ table.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="restaurantApiApp.table.number">Number</span></dt>
+        <dd>
+          <span>{{ table.number }}</span>
+        </dd>
+        <dt><span jhiTranslate="restaurantApiApp.table.order">Order</span></dt>
+        <dd>
+          <div *ngIf="table.order">
+            <a [routerLink]="['/order', table.order?.id, 'view']">{{ table.order?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/table', table.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

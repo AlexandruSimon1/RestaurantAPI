@@ -1,0 +1,25 @@
+{
+  "restaurantApiApp": {
+    "table": {
+      "home": {
+        "title": "Tables",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Table erstellen",
+        "createOrEditLabel": "Table erstellen oder bearbeiten",
+        "notFound": "Keine Tables gefunden"
+      },
+      "created": "Table erstellt mit ID {{ param }}",
+      "updated": "Table aktualisiert mit ID {{ param }}",
+      "deleted": "Table gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Table {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Table"
+      },
+      "id": "ID",
+      "number": "Number",
+      "order": "Order"
+    }
+  }
+}

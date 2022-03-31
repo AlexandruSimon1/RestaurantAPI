@@ -1,0 +1,28 @@
+{
+  "applications": ["RestaurantAPI"],
+  "changelogDate": "20220317151101",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "check_out",
+  "fields": [
+    {
+      "fieldName": "paymentType",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CheckOut",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "checkOut",
+      "ownerSide": true,
+      "relationshipName": "order",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

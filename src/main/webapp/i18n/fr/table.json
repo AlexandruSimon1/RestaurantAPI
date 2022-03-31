@@ -1,0 +1,25 @@
+{
+  "restaurantApiApp": {
+    "table": {
+      "home": {
+        "title": "Tables",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Table",
+        "createOrEditLabel": "Créer ou éditer un Table",
+        "notFound": "Aucun Table trouvé"
+      },
+      "created": "Un nouveau Table a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Table avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Table avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Table {{ id }} ?"
+      },
+      "detail": {
+        "title": "Table"
+      },
+      "id": "ID",
+      "number": "Number",
+      "order": "Order"
+    }
+  }
+}

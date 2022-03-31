@@ -1,0 +1,25 @@
+{
+  "restaurantApiApp": {
+    "checkOut": {
+      "home": {
+        "title": "Check Outs",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Check Out erstellen",
+        "createOrEditLabel": "Check Out erstellen oder bearbeiten",
+        "notFound": "Keine Check Outs gefunden"
+      },
+      "created": "Check Out erstellt mit ID {{ param }}",
+      "updated": "Check Out aktualisiert mit ID {{ param }}",
+      "deleted": "Check Out gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Check Out {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Check Out"
+      },
+      "id": "ID",
+      "paymentType": "Payment Type",
+      "order": "Order"
+    }
+  }
+}
