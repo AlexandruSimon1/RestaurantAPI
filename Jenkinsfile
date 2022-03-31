@@ -21,7 +21,8 @@ pipeline {
 //         }
         stage("Build JAR file"){
             steps{
-                sh script:"mvn install -Dmaven.test.skip=true"
+                sh script: "./mvnw verify -Pdev -DskipTests"
+                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
             }
         }
         stage("Build Docker image"){

@@ -2,19 +2,14 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="nexus-snapshots" />
       <option name="name" value="maven-snapshots" />
       <option name="url" value="https://maven.ms3-inc.com/repository/maven-snapshots/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="spring-milestones" />
-      <option name="name" value="Spring Milestones" />
-      <option name="url" value="https://repo.spring.io/milestone" />
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -22,34 +17,9 @@
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="abc-anypoint-exchange" />
-      <option name="name" value="Amerisource Bergen Anypoint Exchange Repository" />
-      <option name="url" value="https://maven.anypoint.mulesoft.com/api/v2/organizations/59144930-ee88-4047-aa04-ba6dd9c2b01e/maven" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="spring-snapshots" />
-      <option name="name" value="Spring Snapshots" />
-      <option name="url" value="https://repo.spring.io/snapshot" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="anypoint-exchange-v2" />
-      <option name="name" value="Anypoint Exchange Repository" />
-      <option name="url" value="https://maven.anypoint.mulesoft.com/api/v2/maven" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="mulesoft-releases" />
-      <option name="name" value="MuleSoft Releases Repository" />
-      <option name="url" value="https://repository.mulesoft.org/releases/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="mulesoft-ee-repository" />
-      <option name="name" value="mulesoft-ee-repository" />
-      <option name="url" value="https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="nexus-releases" />

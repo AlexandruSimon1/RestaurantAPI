@@ -1,7 +1,3 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/dataSources.xml
-/dataSources.local.xml
-*/target/**
-

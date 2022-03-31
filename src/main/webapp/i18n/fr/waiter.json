@@ -1,0 +1,29 @@
+{
+  "restaurantApiApp": {
+    "waiter": {
+      "home": {
+        "title": "Waiters",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Waiter",
+        "createOrEditLabel": "Créer ou éditer un Waiter",
+        "notFound": "Aucun Waiter trouvé"
+      },
+      "created": "Un nouveau Waiter a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Waiter avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Waiter avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Waiter {{ id }} ?"
+      },
+      "detail": {
+        "title": "Waiter"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "dateOfBirth": "Date Of Birth",
+      "address": "Address",
+      "phoneNumber": "Phone Number",
+      "email": "Email"
+    }
+  }
+}
