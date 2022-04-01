@@ -28,7 +28,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.restaurant.app.domain.Table}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/tables")
 public class TableResource {
 
     private final Logger log = LoggerFactory.getLogger(TableResource.class);
@@ -57,7 +57,7 @@ public class TableResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new tableDTO, or with status {@code 400 (Bad Request)} if the table has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("/tables")
+    @PostMapping
     public ResponseEntity<TableDTO> createTable(@RequestBody TableDTO tableDTO) throws URISyntaxException {
         log.debug("REST request to save Table : {}", tableDTO);
         if (tableDTO.getId() != null) {
@@ -80,7 +80,7 @@ public class TableResource {
      * or with status {@code 500 (Internal Server Error)} if the tableDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/tables/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<TableDTO> updateTable(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody TableDTO tableDTO
@@ -115,7 +115,7 @@ public class TableResource {
      * or with status {@code 500 (Internal Server Error)} if the tableDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/tables/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<TableDTO> partialUpdateTable(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody TableDTO tableDTO
@@ -147,7 +147,7 @@ public class TableResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tables in body.
      */
-    @GetMapping("/tables")
+    @GetMapping
     public ResponseEntity<List<TableDTO>> getAllTables(
         TableCriteria criteria,
         @org.springdoc.api.annotations.ParameterObject Pageable pageable
@@ -164,7 +164,7 @@ public class TableResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
      */
-    @GetMapping("/tables/count")
+    @GetMapping("/count")
     public ResponseEntity<Long> countTables(TableCriteria criteria) {
         log.debug("REST request to count Tables by criteria: {}", criteria);
         return ResponseEntity.ok().body(tableQueryService.countByCriteria(criteria));
@@ -176,7 +176,7 @@ public class TableResource {
      * @param id the id of the tableDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tableDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tables/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<TableDTO> getTable(@PathVariable Long id) {
         log.debug("REST request to get Table : {}", id);
         Optional<TableDTO> tableDTO = tableService.findOne(id);
@@ -189,7 +189,7 @@ public class TableResource {
      * @param id the id of the tableDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tables/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTable(@PathVariable Long id) {
         log.debug("REST request to delete Table : {}", id);
         tableService.delete(id);

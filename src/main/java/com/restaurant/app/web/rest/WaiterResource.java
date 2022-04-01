@@ -28,7 +28,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.restaurant.app.domain.Waiter}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/waiters")
 public class WaiterResource {
 
     private final Logger log = LoggerFactory.getLogger(WaiterResource.class);
@@ -57,7 +57,7 @@ public class WaiterResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new waiterDTO, or with status {@code 400 (Bad Request)} if the waiter has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("/waiters")
+    @PostMapping
     public ResponseEntity<WaiterDTO> createWaiter(@RequestBody WaiterDTO waiterDTO) throws URISyntaxException {
         log.debug("REST request to save Waiter : {}", waiterDTO);
         if (waiterDTO.getId() != null) {
@@ -80,7 +80,7 @@ public class WaiterResource {
      * or with status {@code 500 (Internal Server Error)} if the waiterDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/waiters/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<WaiterDTO> updateWaiter(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody WaiterDTO waiterDTO
@@ -115,7 +115,7 @@ public class WaiterResource {
      * or with status {@code 500 (Internal Server Error)} if the waiterDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/waiters/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<WaiterDTO> partialUpdateWaiter(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody WaiterDTO waiterDTO
@@ -147,7 +147,7 @@ public class WaiterResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of waiters in body.
      */
-    @GetMapping("/waiters")
+    @GetMapping
     public ResponseEntity<List<WaiterDTO>> getAllWaiters(
         WaiterCriteria criteria,
         @org.springdoc.api.annotations.ParameterObject Pageable pageable
@@ -164,7 +164,7 @@ public class WaiterResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
      */
-    @GetMapping("/waiters/count")
+    @GetMapping("/count")
     public ResponseEntity<Long> countWaiters(WaiterCriteria criteria) {
         log.debug("REST request to count Waiters by criteria: {}", criteria);
         return ResponseEntity.ok().body(waiterQueryService.countByCriteria(criteria));
@@ -176,7 +176,7 @@ public class WaiterResource {
      * @param id the id of the waiterDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the waiterDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/waiters/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<WaiterDTO> getWaiter(@PathVariable Long id) {
         log.debug("REST request to get Waiter : {}", id);
         Optional<WaiterDTO> waiterDTO = waiterService.findOne(id);
@@ -189,7 +189,7 @@ public class WaiterResource {
      * @param id the id of the waiterDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/waiters/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteWaiter(@PathVariable Long id) {
         log.debug("REST request to delete Waiter : {}", id);
         waiterService.delete(id);

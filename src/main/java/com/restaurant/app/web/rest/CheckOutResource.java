@@ -28,7 +28,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.restaurant.app.domain.CheckOut}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/check-outs")
 public class CheckOutResource {
 
     private final Logger log = LoggerFactory.getLogger(CheckOutResource.class);
@@ -61,7 +61,7 @@ public class CheckOutResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new checkOutDTO, or with status {@code 400 (Bad Request)} if the checkOut has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("/check-outs")
+    @PostMapping
     public ResponseEntity<CheckOutDTO> createCheckOut(@RequestBody CheckOutDTO checkOutDTO) throws URISyntaxException {
         log.debug("REST request to save CheckOut : {}", checkOutDTO);
         if (checkOutDTO.getId() != null) {
@@ -69,7 +69,7 @@ public class CheckOutResource {
         }
         CheckOutDTO result = checkOutService.save(checkOutDTO);
         return ResponseEntity
-            .created(new URI("/api/check-outs/" + result.getId()))
+            .created(new URI("/check-outs/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -84,7 +84,7 @@ public class CheckOutResource {
      * or with status {@code 500 (Internal Server Error)} if the checkOutDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/check-outs/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<CheckOutDTO> updateCheckOut(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody CheckOutDTO checkOutDTO
@@ -119,7 +119,7 @@ public class CheckOutResource {
      * or with status {@code 500 (Internal Server Error)} if the checkOutDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/check-outs/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<CheckOutDTO> partialUpdateCheckOut(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody CheckOutDTO checkOutDTO
@@ -151,7 +151,7 @@ public class CheckOutResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of checkOuts in body.
      */
-    @GetMapping("/check-outs")
+    @GetMapping
     public ResponseEntity<List<CheckOutDTO>> getAllCheckOuts(
         CheckOutCriteria criteria,
         @org.springdoc.api.annotations.ParameterObject Pageable pageable
@@ -168,7 +168,7 @@ public class CheckOutResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
      */
-    @GetMapping("/check-outs/count")
+    @GetMapping("/count")
     public ResponseEntity<Long> countCheckOuts(CheckOutCriteria criteria) {
         log.debug("REST request to count CheckOuts by criteria: {}", criteria);
         return ResponseEntity.ok().body(checkOutQueryService.countByCriteria(criteria));
@@ -180,7 +180,7 @@ public class CheckOutResource {
      * @param id the id of the checkOutDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the checkOutDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/check-outs/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<CheckOutDTO> getCheckOut(@PathVariable Long id) {
         log.debug("REST request to get CheckOut : {}", id);
         Optional<CheckOutDTO> checkOutDTO = checkOutService.findOne(id);
@@ -193,7 +193,7 @@ public class CheckOutResource {
      * @param id the id of the checkOutDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/check-outs/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCheckOut(@PathVariable Long id) {
         log.debug("REST request to delete CheckOut : {}", id);
         checkOutService.delete(id);
