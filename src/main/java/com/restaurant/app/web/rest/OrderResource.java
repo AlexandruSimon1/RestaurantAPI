@@ -29,7 +29,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.restaurant.app.domain.Order}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/orders")
 public class OrderResource {
 
     private final Logger log = LoggerFactory.getLogger(OrderResource.class);
@@ -58,7 +58,7 @@ public class OrderResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new orderDTO, or with status {@code 400 (Bad Request)} if the order has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("/orders")
+    @PostMapping
     public ResponseEntity<OrderDTO> createOrder(@RequestBody OrderDTO orderDTO) throws URISyntaxException {
         log.debug("REST request to save Order : {}", orderDTO);
         if (orderDTO.getId() != null) {
@@ -81,7 +81,7 @@ public class OrderResource {
      * or with status {@code 500 (Internal Server Error)} if the orderDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/orders/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<OrderDTO> updateOrder(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody OrderDTO orderDTO
@@ -116,7 +116,7 @@ public class OrderResource {
      * or with status {@code 500 (Internal Server Error)} if the orderDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/orders/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<OrderDTO> partialUpdateOrder(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody OrderDTO orderDTO
@@ -148,7 +148,7 @@ public class OrderResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of orders in body.
      */
-    @GetMapping("/orders")
+    @GetMapping
     public ResponseEntity<List<OrderDTO>> getAllOrders(
         OrderCriteria criteria,
         @org.springdoc.api.annotations.ParameterObject Pageable pageable
@@ -165,7 +165,7 @@ public class OrderResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
      */
-    @GetMapping("/orders/count")
+    @GetMapping("/count")
     public ResponseEntity<Long> countOrders(OrderCriteria criteria) {
         log.debug("REST request to count Orders by criteria: {}", criteria);
         return ResponseEntity.ok().body(orderQueryService.countByCriteria(criteria));
@@ -177,7 +177,7 @@ public class OrderResource {
      * @param id the id of the orderDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the orderDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/orders/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<OrderDTO> getOrder(@PathVariable Long id) {
         log.debug("REST request to get Order : {}", id);
         Optional<OrderDTO> orderDTO = orderService.findOne(id);
@@ -190,7 +190,7 @@ public class OrderResource {
      * @param id the id of the orderDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/orders/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
         log.debug("REST request to delete Order : {}", id);
         orderService.delete(id);

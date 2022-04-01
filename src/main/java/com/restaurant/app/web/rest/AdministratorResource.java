@@ -28,7 +28,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.restaurant.app.domain.Administrator}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/administrators")
 public class AdministratorResource {
 
     private final Logger log = LoggerFactory.getLogger(AdministratorResource.class);
@@ -61,7 +61,7 @@ public class AdministratorResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new administratorDTO, or with status {@code 400 (Bad Request)} if the administrator has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("/administrators")
+    @PostMapping
     public ResponseEntity<AdministratorDTO> createAdministrator(@RequestBody AdministratorDTO administratorDTO) throws URISyntaxException {
         log.debug("REST request to save Administrator : {}", administratorDTO);
         if (administratorDTO.getId() != null) {
@@ -69,7 +69,7 @@ public class AdministratorResource {
         }
         AdministratorDTO result = administratorService.save(administratorDTO);
         return ResponseEntity
-            .created(new URI("/api/administrators/" + result.getId()))
+            .created(new URI("/administrators/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -84,7 +84,7 @@ public class AdministratorResource {
      * or with status {@code 500 (Internal Server Error)} if the administratorDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/administrators/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<AdministratorDTO> updateAdministrator(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody AdministratorDTO administratorDTO
@@ -119,7 +119,7 @@ public class AdministratorResource {
      * or with status {@code 500 (Internal Server Error)} if the administratorDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/administrators/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<AdministratorDTO> partialUpdateAdministrator(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody AdministratorDTO administratorDTO
@@ -151,7 +151,7 @@ public class AdministratorResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of administrators in body.
      */
-    @GetMapping("/administrators")
+    @GetMapping
     public ResponseEntity<List<AdministratorDTO>> getAllAdministrators(
         AdministratorCriteria criteria,
         @org.springdoc.api.annotations.ParameterObject Pageable pageable
@@ -168,7 +168,7 @@ public class AdministratorResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
      */
-    @GetMapping("/administrators/count")
+    @GetMapping("/count")
     public ResponseEntity<Long> countAdministrators(AdministratorCriteria criteria) {
         log.debug("REST request to count Administrators by criteria: {}", criteria);
         return ResponseEntity.ok().body(administratorQueryService.countByCriteria(criteria));
@@ -180,7 +180,7 @@ public class AdministratorResource {
      * @param id the id of the administratorDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the administratorDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/administrators/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<AdministratorDTO> getAdministrator(@PathVariable Long id) {
         log.debug("REST request to get Administrator : {}", id);
         Optional<AdministratorDTO> administratorDTO = administratorService.findOne(id);
@@ -193,7 +193,7 @@ public class AdministratorResource {
      * @param id the id of the administratorDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/administrators/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAdministrator(@PathVariable Long id) {
         log.debug("REST request to delete Administrator : {}", id);
         administratorService.delete(id);

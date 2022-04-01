@@ -28,7 +28,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.restaurant.app.domain.Menu}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/menus")
 public class MenuResource {
 
     private final Logger log = LoggerFactory.getLogger(MenuResource.class);
@@ -57,7 +57,7 @@ public class MenuResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new menuDTO, or with status {@code 400 (Bad Request)} if the menu has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("/menus")
+    @PostMapping
     public ResponseEntity<MenuDTO> createMenu(@RequestBody MenuDTO menuDTO) throws URISyntaxException {
         log.debug("REST request to save Menu : {}", menuDTO);
         if (menuDTO.getId() != null) {
@@ -65,7 +65,7 @@ public class MenuResource {
         }
         MenuDTO result = menuService.save(menuDTO);
         return ResponseEntity
-            .created(new URI("/api/menus/" + result.getId()))
+            .created(new URI("/menus/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -80,7 +80,7 @@ public class MenuResource {
      * or with status {@code 500 (Internal Server Error)} if the menuDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/menus/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<MenuDTO> updateMenu(@PathVariable(value = "id", required = false) final Long id, @RequestBody MenuDTO menuDTO)
         throws URISyntaxException {
         log.debug("REST request to update Menu : {}, {}", id, menuDTO);
@@ -113,7 +113,7 @@ public class MenuResource {
      * or with status {@code 500 (Internal Server Error)} if the menuDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/menus/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<MenuDTO> partialUpdateMenu(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody MenuDTO menuDTO
@@ -145,7 +145,7 @@ public class MenuResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of menus in body.
      */
-    @GetMapping("/menus")
+    @GetMapping
     public ResponseEntity<List<MenuDTO>> getAllMenus(
         MenuCriteria criteria,
         @org.springdoc.api.annotations.ParameterObject Pageable pageable
@@ -162,7 +162,7 @@ public class MenuResource {
      * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
      */
-    @GetMapping("/menus/count")
+    @GetMapping("/count")
     public ResponseEntity<Long> countMenus(MenuCriteria criteria) {
         log.debug("REST request to count Menus by criteria: {}", criteria);
         return ResponseEntity.ok().body(menuQueryService.countByCriteria(criteria));
@@ -174,7 +174,7 @@ public class MenuResource {
      * @param id the id of the menuDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the menuDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/menus/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<MenuDTO> getMenu(@PathVariable Long id) {
         log.debug("REST request to get Menu : {}", id);
         Optional<MenuDTO> menuDTO = menuService.findOne(id);
@@ -187,7 +187,7 @@ public class MenuResource {
      * @param id the id of the menuDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/menus/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMenu(@PathVariable Long id) {
         log.debug("REST request to delete Menu : {}", id);
         menuService.delete(id);

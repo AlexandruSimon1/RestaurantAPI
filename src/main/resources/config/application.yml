@@ -167,7 +167,7 @@ spring:
 
 server:
   servlet:
-    context-path: /restaurant-system-api
+    context-path: /restaurant-system-api/api/v1
     session:
       cookie:
         http-only: true
