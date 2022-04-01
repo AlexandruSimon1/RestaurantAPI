@@ -67,7 +67,7 @@ pipeline {
                                 waitUntil(initialRecurrencePeriod: 2000) {
                                     script {
                                         def result =
-                                        sh script: "curl --silent --output /dev/null ${host}:80/api/v1/menus",
+                                        sh script: "curl --silent --output /dev/null https://${host}:80/restaurant-system-api/api/v1/menus",
                                         returnStatus: true
                                         return (result == 0)
                                     }
