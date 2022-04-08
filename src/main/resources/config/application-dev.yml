@@ -18,8 +18,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: ENC(p/SXXWA+cb6drNji0teM0Z0vSbMfdum5AB0iSPrpzBkCoXCEOotE0UyRdBmy+wzuB4on8IAT/erUc1uv/vK7hFzZmyRvXmUpBDfGOj+3NuFSLeKSDfEDteCYsby+PqvOdj54LamdQlPN3hTIAg4z/w==)
-    username: ENC(J1KVAnZQaADnI5Vza7uahQ==)
-    password: ENC(noOCw8kYO+i4MvlbjX7GE/9PXWFd6vRk)
+    username: root
+    password: root
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -54,9 +54,9 @@ server:
   port: 8282
   ssl:
     key-store: classpath:config/tls/restaurant-simon-project_page.p12
-    key-store-password: arthur
+    key-store-password: ENC(xmVKPyvW0+YF11SbEEA3QA==)
     key-store-type: PKCS12
-    key-alias: restaurant-simon-project
+    key-alias: ENC(IDfN/v128XsaTjsEwhVBenw6UwsTixJAgLyD7rG9xsvir+9pqQrOkA==)
     enabled: true
 
 # ===================================================================
