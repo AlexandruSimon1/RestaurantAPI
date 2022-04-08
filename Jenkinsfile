@@ -13,12 +13,12 @@ pipeline {
                 echo "Building ${projectArtifactId}:${projectVersion}"
             }
         }
-        stage("Test"){
-            steps {
-                bat "mvn -version"
-                bat "mvn test"
-            }
-        }
+//         stage("Test"){
+//             steps {
+//                 bat "mvn -version"
+//                 bat "mvn test"
+//             }
+//         }
         stage("Build JAR file"){
             steps{
                 sh script: "mvn install -Dmaven.test.skip=true"
