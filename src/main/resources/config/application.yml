@@ -158,13 +158,13 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: https://restaurant-simon-project.page:8443/auth/realms/restaurant
-            token-uri: https://restaurant-simon-project.page:8443/auth/realms/restaurant
+            issuer-uri: ENC(j+/+jrZcPwbfE3XhwlHcsc048YT8wt9bxjViKNxmZP0uZkqizodNg+5fpk24f5ks2dLB08ruMlCV+aRdJ8x//tS+uiOAmqveedKF2spyM50=)
+            token-uri: ENC(j+/+jrZcPwbfE3XhwlHcsc048YT8wt9bxjViKNxmZP0uZkqizodNg+5fpk24f5ks2dLB08ruMlCV+aRdJ8x//tS+uiOAmqveedKF2spyM50=)
         registration:
           oidc:
             client-id: account
-            client-secret: 0bd9e112-b079-44ae-8a5d-9035faea25b7
-            scope: openid,profile,email
+            client-secret: ENC(2nXi2NNniQ34Ta/Vvuft7G3p69mpNcthuVV+qTSgmU0NAFYCaMWSEkY6D7OhBPnI)
+            scope: openid,profile,email, psa-project
 
 server:
   servlet:
