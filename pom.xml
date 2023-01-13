@@ -19,7 +19,7 @@
         <org-mapstruct.version>1.5.3.Final</org-mapstruct.version>
         <spring.boot.version>2.6.2</spring.boot.version>
         <mysql-connector-java.version>8.0.30</mysql-connector-java.version>
-        <flyway-maven-plugin.version>9.11.0</flyway-maven-plugin.version>
+        <flyway-maven-plugin.version>8.3.0</flyway-maven-plugin.version>
         <lombok.version>1.18.24</lombok.version>
         <jasypt-maven-plugin.version>3.0.5</jasypt-maven-plugin.version>
     </properties>

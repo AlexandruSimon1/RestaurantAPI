@@ -11,7 +11,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/waiters")
+@RequestMapping("/waiters")
 public class WaiterController {
     private final WaiterService waiterService;
 

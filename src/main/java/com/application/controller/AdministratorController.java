@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/administrators")
+@RequestMapping("/administrators")
 public class AdministratorController {
     @Autowired
     private final AdministratorService administratorService;

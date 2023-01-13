@@ -10,7 +10,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/tables")
+@RequestMapping("/tables")
 public class TableController {
     private final TableService tableService;
 
