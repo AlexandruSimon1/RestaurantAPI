@@ -34,7 +34,7 @@ pipeline {
                 ]) {
                         sh script: "docker login -u ${dockerLogin} -p ${dockerPassword}"
                         sh script: "docker image build --build-arg PASSWORD=${password} --build-arg DATABASE=${database} -t ${dockerLogin}/restaurant ."
-                        sh script: "docker push ${dockerLogin}/auction"
+                        sh script: "docker push ${dockerLogin}/restaurant"
                 }
                 echo "Building image and pushing it to DockerHub is successful done"
             }

@@ -10,7 +10,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/menus")
+@RequestMapping("/menus")
 public class MenuController {
     private final MenuService menuService;
 

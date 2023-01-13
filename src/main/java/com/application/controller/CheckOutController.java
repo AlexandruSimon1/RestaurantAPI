@@ -11,7 +11,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/checkout")
+@RequestMapping("/checkouts")
 public class CheckOutController {
     private final CheckOutService checkOutService;
 
